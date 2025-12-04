@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все схемы — PixelCraft</title>
+
+    <link rel="stylesheet" href="../css/style.css">       <!-- общий стиль -->
+    <link rel="stylesheet" href="../css/styleall.css">    <!-- стиль страницы -->
+</head>
+
+<body>
+
+<!-- ======== ШАПКА ======== -->
+<header class="header">
+    <div class="logo-block">
+        <img src="../images/logo.png" class="header-logo-img" alt="Logo">
+        <div class="logo-text">
+            <div class="logo-name">PixelCraft</div>
+            <div class="logo-desc">
+                Ваш персональный помощник для<br>работы с пиксельными схемами
+            </div>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a href="../main.html">Главная</a>
+        <a href="#" class="active-page">Все схемы</a>
+        <a href="#">Моя коллекция</a>
+        <a href="#" class="create-btn">Создать схему</a>
+    </nav>
+</header>
+
+
+<!-- ======== ПОИСК ======== -->
+<section class="search-block-all">
+    <div class="search-container-all">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Название схемы…">
+    </div>
+</section>
+
+
+<!-- ======== ОСНОВНАЯ СЕТКА ======== -->
+<section class="all-wrapper">
+
+    <!-- ===== Фильтры ===== -->
+    <aside class="filters">
+        <h3>⚙ Фильтры</h3>
+
+        <label>Категория</label>
+        <select>
+            <option>Все</option>
+            <option>Животные</option>
+            <option>Пейзажи</option>
+            <option>Персонажи</option>
+        </select>
+
+        <label>Размер</label>
+        <div class="range-block">
+            <span>Ширина 0 - 150</span>
+            <input type="range" min="0" max="150">
+            <span>Высота 0 - 150</span>
+            <input type="range" min="0" max="150">
+        </div>
+
+        <label>Сложность</label>
+        <select>
+            <option>Все</option>
+            <option>Легкий</option>
+            <option>Средний</option>
+            <option>Сложный</option>
+        </select>
+
+        <label>Количество цветов</label>
+        <span>0 - 50</span>
+        <input type="range" min="0" max="50">
+
+        <button class="reset-btn">Сбросить фильтры</button>
+    </aside>
+
+
+    <!-- ===== Карточки ===== -->
+    <main class="all-schemes">
+
+        <div class="found-count">Найдено схем: 6</div>
+
+        <div class="cards-grid">
+
+            <!-- Карточка 1 -->
+            <div class="scheme-card">
+                <img src="../images/rose.png">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Роза в винтажном стиле</h3>
+                        <span class="tag medium">Средний</span>
+                    </div>
+
+                    <div class="info-line"><span class="icon">▦</span> 50×50 • 2500 пикселей</div>
+                    <div class="info-line"><span class="icon">🎨</span> 12 цветов</div>
+
+                    <div class="colors">
+                        <span style="background:#b90000"></span>
+                        <span style="background:#ff6600"></span>
+                        <span style="background:#289b00"></span>
+                        <span style="background:#004aad"></span>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn start" onclick="location.href='scheme.html'">Начать</button>
+                        <button class="btn add">Добавить в коллекцию</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Дальше идут карточки 2–6 -->
+
+            <div class="scheme-card">
+                <img src="../images/mountain.png">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Горный пейзаж</h3>
+                        <span class="tag hard">Сложный</span>
+                    </div>
+
+                    <div class="info-line"><span class="icon">▦</span> 100×80 • 8000 пикселей</div>
+                    <div class="info-line"><span class="icon">🎨</span> 25 цветов</div>
+
+                    <div class="colors">
+                        <span style="background:#5588bb"></span>
+                        <span style="background:#aee0ff"></span>
+                        <span style="background:#e6c27a"></span>
+                        <span style="background:#6b4a2b"></span>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn start">Начать</button>
+                        <button class="btn add">Добавить в коллекцию</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scheme-card">
+                <img src="../images/cat.png">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Милый котёнок</h3>
+                        <span class="tag easy">Легкий</span>
+                    </div>
+
+                    <div class="info-line"><span class="icon">▦</span> 60×60 • 3600 пикселей</div>
+                    <div class="info-line"><span class="icon">🎨</span> 15 цветов</div>
+
+                    <div class="colors">
+                        <span style="background:#ffc54e"></span>
+                        <span style="background:#ff6600"></span>
+                        <span style="background:#83cc16"></span>
+                        <span style="background:#00a2ff"></span>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn start">Начать</button>
+                        <button class="btn add">Добавить в коллекцию</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scheme-card">
+                <img src="../images/lavender.png">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Букет лаванды</h3>
+                        <span class="tag easy">Легкий</span>
+                    </div>
+
+                    <div class="info-line"><span class="icon">▦</span> 40×70 • 2800 пикселей</div>
+                    <div class="info-line"><span class="icon">🎨</span> 8 цветов</div>
+
+                    <div class="colors">
+                        <span style="background:#9a54ff"></span>
+                        <span style="background:#f2b300"></span>
+                        <span style="background:#ff6600"></span>
+                        <span style="background:#3a8730"></span>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn start">Начать</button>
+                        <button class="btn add">Добавить в коллекцию</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scheme-card">
+                <img src="../images/sunset.png">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Морской закат</h3>
+                        <span class="tag hard">Сложный</span>
+                    </div>
+
+                    <div class="info-line"><span class="icon">▦</span> 120×90 • 10800 пикселей</div>
+                    <div class="info-line"><span class="icon">🎨</span> 30 цветов</div>
+
+                    <div class="colors">
+                        <span style="background:#ff5733"></span>
+                        <span style="background:#ffbd33"></span>
+                        <span style="background:#7030a0"></span>
+                        <span style="background:#003d99"></span>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn start">Начать</button>
+                        <button class="btn add">Добавить в коллекцию</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scheme-card">
+                <img src="../images/butterfly.png">
+                <div class="card-content">
+                    <div class="card-title-row">
+                        <h3>Бабочка-монарx</h3>
+                        <span class="tag medium">Средний</span>
+                    </div>
+
+                    <div class="info-line"><span class="icon">▦</span> 45×45 • 2025 пикселей</div>
+                    <div class="info-line"><span class="icon">🎨</span> 10 цветов</div>
+
+                    <div class="colors">
+                        <span style="background:#ff9100"></span>
+                        <span style="background:#f43d2b"></span>
+                        <span style="background:#4d4d4d"></span>
+                        <span style="background:#ffcf3c"></span>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn start">Начать</button>
+                        <button class="btn add">Добавить в коллекцию</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</section>
+
+
+<!-- ======== ФУТЕР ======== -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="../images/logo.png" class="footer-img" alt="">
+            <div class="footer-text">
+                <div class="footer-title">PixelCraft</div>
+                <div class="footer-sub">
+                    Ваш персональный помощник для<br>
+                    работы с пиксельными схемами
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

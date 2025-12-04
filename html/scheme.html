@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Роза — PixelCraft</title>
+
+    <link rel="stylesheet" href="../css/stylescheme.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- ===== ШАПКА ===== -->
+    <header class="header">
+        <div class="logo-block">
+            <img src="../images/logo.png" alt="Logo" class="header-logo-img">
+            <div class="logo-text">
+                <div class="logo-name">PixelCraft</div>
+                <div class="logo-desc">Ваш персональный помощник для<br>работы с пиксельными схемами</div>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="../main.html">Главная</a>
+            <a href="all.html">Все схемы</a>
+            <a href="#">Моя коллекция</a>
+            <a href="#" class="create-btn">Создать схему</a>
+        </nav>
+    </header>
+
+
+    <!-- ===== ПАНЕЛЬ СТАТИСТИКИ ===== -->
+    <section class="stats">
+        <div class="stat-card">
+            <div class="stat-name">Прогресс</div>
+            <div class="stat-value">0.0%</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-name">Отмечено</div>
+            <div class="stat-value">0 / 2500</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-name">Осталось</div>
+            <div class="stat-value">2500</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-name">Время</div>
+            <div class="stat-value">00:00:00</div>
+        </div>
+    </section>
+
+
+    <!-- ===== ОСНОВНОЙ БЛОК ===== -->
+    <section class="workspace">
+
+        <!-- Левая панель палитры -->
+        <aside class="palette">
+            <h3>🎨 Палитра DMC</h3>
+
+            <div class="color-item">
+                <span class="color-preview" style="background:#c40000;"></span>
+                <div class="color-info">
+                    <div class="color-name">DMC 3000</div>
+                    <div class="color-count">0/505</div>
+                </div>
+            </div>
+
+            <div class="color-item">
+                <span class="color-preview" style="background:#ff90c8;"></span>
+                <div class="color-info">
+                    <div class="color-name">DMC 3001</div>
+                    <div class="color-count">0/512</div>
+                </div>
+            </div>
+
+            <div class="color-item">
+                <span class="color-preview" style="background:#006200;"></span>
+                <div class="color-info">
+                    <div class="color-name">DMC 3002</div>
+                    <div class="color-count">0/481</div>
+                </div>
+            </div>
+
+            <div class="color-item">
+                <span class="color-preview" style="background:#004d00;"></span>
+                <div class="color-info">
+                    <div class="color-name">DMC 3003</div>
+                    <div class="color-count">0/497</div>
+                </div>
+            </div>
+
+            <div class="color-item">
+                <span class="color-preview" style="background:#7b4a00;"></span>
+                <div class="color-info">
+                    <div class="color-name">DMC 3004</div>
+                    <div class="color-count">0/505</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Правая панель — схема -->
+        <main class="scheme-area">
+            <div class="scheme-header">
+                <h2>Роза в винтажном стиле</h2>
+
+                <div class="scheme-tools">
+                    <button>🔍</button>
+                    <button>100%</button>
+                    <button>↺</button>
+                    <button>↻</button>
+                    <button>⤓</button>
+                </div>
+            </div>
+
+            <!-- Сама схема -->
+            <div class="scheme-image-container">
+                <img src="../images/rosegrid.png" alt="Схема" class="scheme-image">
+            </div>
+
+            <div class="scheme-hint">
+                💡 Совет: Нажимайте на клетки, чтобы отметить их. Используйте масштабирование для удобства работы.
+            </div>
+        </main>
+
+    </section>
+
+</body>
+</html>

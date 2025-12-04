@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelCraft</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-block">
+            <img src="images/logo.png" alt="Logo" class="header-logo-img">
+            <div class="logo-text">
+                <div class="logo-name">PixelCraft</div>
+                <div class="logo-desc">Ваш персональный помощник для<br>работы с пиксельными схемами</div>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="#">Главная</a>
+            <a href="html/all.html">Все схемы</a>
+            <a href="#">Моя коллекция</a>
+            <a href="#" class="create-btn">Создать схему</a>
+        </nav>
+    </header>
+
+    <section class="search-block">
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Название схемы…">
+        </div>
+    </section>
+
+    <section class="hero" id="hero">
+        <h1>Создавайте<br>пиксельные схемы<br>легко</h1>
+        <p>
+            Платформа для создания и работы с пиксельными схемами.  
+            Начните рисовать прямо сейчас с простым редактором и сохраняйте свои работы в личную коллекцию.
+        </p>
+    </section>
+
+        <!-- Блок регистрации -->
+    <section class="register-block">
+        <p class="register-text">
+            Регистрируйтесь, добавляйте схемы в свою коллекцию, сохраняйте прогресс,
+            создавайте свои схемы и делитесь ими с другими пользователями
+        </p>
+
+        <a href="#" class="register-btn">Зарегистрироваться</a>
+    </section>
+
+    <!-- Категории -->
+    <section class="categories">
+        <h2>Найдите схему по теме</h2>
+        <p class="cat-subtitle">Выбирайте из разных направлений</p>
+
+        <div class="cat-grid">
+
+            <div class="cat-column">
+                <div class="cat-item">
+                    <img src="images/food.png" alt="Еда">
+                    <span>Еда</span>
+                </div>
+
+                <div class="cat-item">
+                    <img src="images/characters.png" alt="Персонажи">
+                    <span>Персонажи</span>
+                </div>
+            </div>
+
+            <div class="cat-column">
+                <div class="cat-item">
+                    <img src="images/plants.png" alt="Растения">
+                    <span>Растения</span>
+                </div>
+
+                <div class="cat-item">
+                    <img src="images/abstract.png" alt="Абстракции">
+                    <span>Абстракции</span>
+                </div>
+            </div>
+
+            <div class="cat-column">
+                <div class="cat-item">
+                    <img src="images/animals.png" alt="Животные">
+                    <span>Животные</span>
+                </div>
+
+                <div class="cat-item">
+                    <img src="images/other.png" alt="Другое">
+                    <span>Другое</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Популярные схемы -->
+<section class="popular">
+    <h2>Популярные схемы этого месяца</h2>
+
+    <div class="popular-grid">
+
+        <!-- Карточка 1 -->
+        <div class="scheme-card">
+            <img src="images/rose.png" alt="Роза">
+
+            <div class="card-content">
+                <div class="card-title-row">
+                    <h3>Роза в винтажном стиле</h3>
+                    <span class="tag medium">Средний</span>
+                </div>
+
+                <div class="info-line">
+                    <span class="icon">▦</span> 50 × 50 • 2500 пикселей
+                </div>
+
+                <div class="info-line">
+                    <span class="icon">🎨</span> 12 цветов
+                </div>
+
+                <div class="colors">
+                    <span style="background:#b90000"></span>
+                    <span style="background:#ff6600"></span>
+                    <span style="background:#289b00"></span>
+                    <span style="background:#004aad"></span>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn start" onclick="location.href='html/scheme.html'">Начать</button>
+
+                    <button class="btn add">Добавить в коллекцию</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div class="scheme-card">
+            <img src="images/mountain.png" alt="Горы">
+
+            <div class="card-content">
+                <div class="card-title-row">
+                    <h3>Горный пейзаж</h3>
+                    <span class="tag hard">Сложный</span>
+                </div>
+
+                <div class="info-line">
+                    <span class="icon">▦</span> 100 × 80 • 8000 пикселей
+                </div>
+
+                <div class="info-line">
+                    <span class="icon">🎨</span> 25 цветов
+                </div>
+
+                <div class="colors">
+                    <span style="background:#6899ff"></span>
+                    <span style="background:#bee6ff"></span>
+                    <span style="background:#f4d199"></span>
+                    <span style="background:#5d3d1a"></span>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn start">Начать</button>
+                    <button class="btn add">Добавить в коллекцию</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div class="scheme-card">
+            <img src="images/cat.png" alt="Котёнок">
+
+            <div class="card-content">
+                <div class="card-title-row">
+                    <h3>Милый котёнок</h3>
+                    <span class="tag easy">Легкий</span>
+                </div>
+
+                <div class="info-line">
+                    <span class="icon">▦</span> 60 × 60 • 3600 пикселей
+                </div>
+
+                <div class="info-line">
+                    <span class="icon">🎨</span> 15 цветов
+                </div>
+
+                <div class="colors">
+                    <span style="background:#ffb000"></span>
+                    <span style="background:#ff6600"></span>
+                    <span style="background:#84cc16"></span>
+                    <span style="background:#00a3ff"></span>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn start">Начать</button>
+                    <button class="btn add">Добавить в коллекцию</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script src="js/main1fon.js"></script>
+</body>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+
+        <div class="footer-logo">
+            <img src="images/logo.png" alt="PixelCraft Logo" class="footer-img">
+
+            <div class="footer-text">
+                <div class="footer-title">PixelCraft</div>
+                <div class="footer-sub">
+                    Ваш персональный помощник для<br>
+                    работы с пиксельными схемами
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+
+</html>
