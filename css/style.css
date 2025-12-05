@@ -88,6 +88,7 @@ body {
 /* HERO — основной блок */
 .hero {
     position: relative;
+    z-index: 1;
     overflow: hidden;
     min-height: 45vh;
 
@@ -102,44 +103,116 @@ body {
     padding: 120px 20px;
 }
 
+/* текстовый слой */
+.hero-content,
+.hero * {
+    position: relative;
+    z-index: 10; /* текст и тени всегда над эффектом */
+}
+
 .hero h1 {
     font-size: 68px;
     font-weight: 600;
     line-height: 1.15;
     margin: 0 0 25px 0;
     color: #4e1f6b;
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.85),
+        0 0 18px rgba(255, 255, 255, 0.75),
+        0 0 30px rgba(255, 255, 255, 0.55);
 }
 
 .hero p {
     font-size: 20px;
     max-width: 760px;
-    margin: 0 auto;
-    margin-top: 25px;
+    margin: 25px auto 0;
     color: #5a3577;
     line-height: 1.55;
+
+    text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.8),
+        0 0 14px rgba(255, 255, 255, 0.6),
+        0 0 24px rgba(255, 255, 255, 0.45);
 }
 
+/* слой фона с маской */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(135deg, #e9c6ff, #ffd6ec, #d3b7ff);
+    z-index: 0; /* ниже текста */
+
+    background: linear-gradient(135deg, #e1b2ff, #ffb8de, #c8a2ff);
 
     mask-image: radial-gradient(
-        circle 50px at var(--mx, -100px) var(--my, -100px),
+        circle 200px at var(--mx, -400px) var(--my, -400px),
         black 0%,
         transparent 100%
     );
 
     -webkit-mask-image: radial-gradient(
-        circle 50px at var(--mx, -100px) var(--my, -100px),
+        circle 200px at var(--mx, -400px) var(--my, -400px),
         black 0%,
         transparent 100%
     );
 
     transition: mask-image 0.05s linear;
 }
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    background: radial-gradient(
+        circle 300px at var(--mx, -400px) var(--my, -400px),
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.4) 40%,
+        transparent 80%
+    );
+
+    filter: blur(60px);
+}
+
+.trail-dot {
+    position: fixed;
+    width: 400px;     /* 2 × 200px радиус */
+    height: 400px;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0; /* ниже текста, выше основного фона */
+
+    /* цветовой градиент как у hero::before */
+    background: radial-gradient(
+        circle,
+        rgba(225, 178, 255, 0.9) 0%,   /* яркое ядро */
+        rgba(255, 184, 222, 0.7) 40%,
+        rgba(200, 162, 255, 0.5) 70%,
+        transparent 100%
+    );
+
+    filter: blur(40px); /* такое же размытие как фон */
+
+    animation: trailFade 0.9s ease-out forwards;
+}
+
+@keyframes trailFade {
+    0% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+}
+
+
 
 
 /* БЛОК РЕГИСТРАЦИИ */
