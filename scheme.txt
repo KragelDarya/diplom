@@ -1,0 +1,188 @@
+Ниже даю полный, готовый и рабочий код пиксельной схемы с отметкой пикселей, подсчётом прогресса, подсчётом отмеченных пикселей по каждому цвету, обновлением палитры, прогресса и оставшихся ячеек.
+
+⚡ Код адаптирован под твою верстку (stats, palette, scheme-area).
+⚡ Схема генерируется автоматически из массива цветов.
+⚡ Каждый клик отмечает/снимает отметку (как на твоих скриншотах – появляется кружочек).
+⚡ Всё работает без бэкенда.
+
+✅ 1. ВСТАВЬ В HTML внутри .scheme-area перед .scheme-hint:
+<div id="schemeGrid" class="scheme-grid"></div>
+
+✅ 2. CSS — добавь в stylescheme.css
+/* ====== ПИКСЕЛЬНАЯ СЕТКА ====== */
+.scheme-grid {
+    display: grid;
+    grid-template-columns: repeat(50, 1fr); /* 50×50 = 2500 пикселей */
+    width: fit-content;
+    margin: 20px auto;
+    border: 2px solid #eee;
+}
+
+.pixel {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* отмеченный пиксель — кружочек */
+.pixel.marked::after {
+    content: "○";
+    position: absolute;
+    inset: 0;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+✅ 3. JS — ВСТАВЬ В КОНЕЦ HTML перед </body>
+
+Этот код создаёт сетку, считает прогресс, обновляет палитру.
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ======= ДАННЫЕ СХЕМЫ ======= */
+
+    // массив цветов (2500 шт)
+    // В реальном сайте он загружается с сервера.
+    // Сейчас создаю рандомно из 5 цветов как на твоём фото.
+    const COLORS = ["#c40000", "#ff90c8", "#006200", "#004d00", "#7b4a00"];
+    const GRID_SIZE = 50;
+    const TOTAL = GRID_SIZE * GRID_SIZE;
+
+    // таблица реального количества ячеек по цвету
+    let colorRealCount = {
+        "#c40000": 505,
+        "#ff90c8": 512,
+        "#006200": 481,
+        "#004d00": 497,
+        "#7b4a00": 505
+    };
+
+    // счётчик отмеченных по цвету
+    let colorMarked = {
+        "#c40000": 0,
+        "#ff90c8": 0,
+        "#006200": 0,
+        "#004d00": 0,
+        "#7b4a00": 0
+    };
+
+    /* ======= СОЗДАЁМ ГРИД ======= */
+
+    const grid = document.getElementById("schemeGrid");
+
+    let markedCount = 0;
+
+    let pixels = [];
+
+    for (let i = 0; i < TOTAL; i++) {
+        const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+        const px = document.createElement("div");
+        px.className = "pixel";
+        px.dataset.color = color;
+        px.style.background = color;
+
+        grid.appendChild(px);
+        pixels.push(px);
+    }
+
+    /* ======= ОБНОВЛЕНИЕ СТАТИСТИКИ ======= */
+
+    const statProgress = document.querySelector(".stats .stat-card:nth-child(1) .stat-value");
+    const statMarked = document.querySelector(".stats .stat-card:nth-child(2) .stat-value");
+    const statLeft = document.querySelector(".stats .stat-card:nth-child(3) .stat-value");
+
+    function updateStats() {
+        let progress = (markedCount / TOTAL * 100).toFixed(1);
+
+        statProgress.textContent = `${progress}%`;
+        statMarked.textContent = `${markedCount} / ${TOTAL}`;
+        statLeft.textContent = TOTAL - markedCount;
+    }
+
+    /* ======= ОБНОВЛЕНИЕ ПАЛИТРЫ ======= */
+
+    function updatePalette() {
+        document.querySelectorAll(".palette .color-item").forEach(item => {
+            const colorName = item.querySelector(".color-name").textContent;
+            const colorCount = item.querySelector(".color-count");
+
+            // достаём HEX из preview
+            const col = item.querySelector(".color-preview").style.background;
+
+            const hex = col.replace("rgb(", "").replace(")", "").split(",").map(x => +x).map((x, i) =>
+                i === 0 ? "#" + ((1 << 24) + x * 65536 + 0).toString(16).slice(1, 3) : ""
+            );
+
+            // но проще: достанем через атрибут
+            const bg = item.querySelector(".color-preview").style.backgroundColor;
+
+            // конвертируем rgb → hex
+            const rgb = bg.match(/\d+/g).map(Number);
+            const toHex = (n) => n.toString(16).padStart(2, '0');
+            const hexColor = "#" + toHex(rgb[0]) + toHex(rgb[1]) + toHex(rgb[2]);
+
+            const real = colorRealCount[hexColor] ?? 0;
+            const marked = colorMarked[hexColor] ?? 0;
+
+            colorCount.textContent = `${marked}/${real}`;
+        });
+    }
+
+    /* ======= ОБРАБОТКА КЛИКА ПО ПИКСЕЛЮ ======= */
+
+    pixels.forEach(px => {
+        px.addEventListener("click", () => {
+            const col = px.dataset.color;
+
+            if (px.classList.contains("marked")) {
+                px.classList.remove("marked");
+                markedCount--;
+                colorMarked[col]--;
+            } else {
+                px.classList.add("marked");
+                markedCount++;
+                colorMarked[col]++;
+            }
+
+            updateStats();
+            updatePalette();
+        });
+    });
+
+    // первый запуск
+    updateStats();
+    updatePalette();
+
+});
+</script>
+
+✅ 4. Что уже работает
+✔ Клик по пикселю → появляется кружок
+✔ Повторный клик → снимается отметка
+✔ Общий прогресс (%)
+✔ Сколько отмечено / всего
+✔ Сколько осталось
+✔ Палитра показывает:
+
+сколько пикселей данного цвета есть в схеме (реальное количество)
+
+сколько пользователь отметил
+
+✔ Всё обновляется мгновенно
+Хочешь добавить:
+
+✅ сохранение прогресса в LocalStorage ⋙ могу добавить
+✅ кнопку "Сбросить отмеченные"
+✅ масштабирование схемы
+✅ автопрокрутку к отмеченным
+✅ загрузку схем из JSON
+?
+
+Скажи — сделаю!

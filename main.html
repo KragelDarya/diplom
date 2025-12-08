@@ -54,6 +54,45 @@
         <a href="#" class="register-btn">Зарегистрироваться</a>
     </section>
 
+
+    <div class="auth-modal" id="authModal">
+        <div class="auth-window">
+
+            <button class="auth-close" id="authClose">×</button>
+
+            <p class="auth-title">
+                Создайте аккаунт чтобы сохранять схемы в коллекцию, сохранять прогресс схем 
+                и создавать свои схемы. <br>
+                Или войдите в уже созданный аккаунт.
+            </p>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="register">Регистрация</button>
+                <button class="auth-tab" data-tab="login">Вход</button>
+            </div>
+
+            <!-- REGISTRATION FORM -->
+            <form class="auth-form" id="registerForm">
+                <input type="text" id="regUsername" placeholder="Имя пользователя" required>
+                <input type="password" id="regPassword" placeholder="Пароль" required>
+                <input type="password" id="regPassword2" placeholder="Подтвердите пароль" required>
+                <button type="submit" class="auth-submit">Создать аккаунт</button>
+            </form>
+
+            <!-- LOGIN FORM -->
+            <form class="auth-form hidden" id="loginForm">
+                <input type="text" id="logUsername" placeholder="Имя пользователя" required>
+                <input type="password" id="logPassword" placeholder="Пароль" required>
+                <button type="submit" class="auth-submit">Войти</button>
+            </form>
+
+            <p class="auth-error" id="authError"></p>
+
+        </div>
+    </div>
+
+
+
     <!-- Категории -->
     <section class="categories">
         <h2>Найдите схему по теме</h2>
@@ -206,6 +245,7 @@
     </div>
 </section>
 <script src="js/main1fon.js"></script>
+<script src="js/form.js"></script>
 </body>
 
 <!-- FOOTER -->

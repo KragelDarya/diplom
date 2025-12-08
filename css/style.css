@@ -178,8 +178,34 @@ body {
     filter: blur(60px);
 }
 
+.hero::before,
+.hero::after {
+    opacity: var(--hero-opacity, 1);   /* управляем прозрачностью */
+    transition: opacity 0.4s ease-out; /* плавное исчезновение */
+
+    mask-image: radial-gradient(
+        circle 200px at var(--mx) var(--my),
+        black 0%,
+        rgba(0,0,0,0.7) 40%,
+        rgba(0,0,0,0.3) 70%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: radial-gradient(
+        circle 200px at var(--mx) var(--my),
+        black 0%,
+        rgba(0,0,0,0.7) 40%,
+        rgba(0,0,0,0.3) 70%,
+        transparent 100%
+    );
+}
+
+
+
+
+
 .trail-dot {
-    position: fixed;
+    position: absolute;
     width: 400px;     /* 2 × 200px радиус */
     height: 400px;
     pointer-events: none;
@@ -240,6 +266,129 @@ body {
     text-decoration: none;
     font-weight: 600;
 }
+
+
+/* затемнение */
+.auth-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* окно */
+.auth-window {
+    background: #fff;
+    width: 420px;
+    padding: 30px 35px;
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    position: relative;
+    text-align: center;
+}
+
+/* крестик */
+.auth-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* текст сверху */
+.auth-title {
+    font-size: 16px;
+    color: #5a4c79;
+    margin-bottom: 25px;
+}
+
+/* вкладки */
+.auth-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.auth-tab {
+    padding: 8px 18px;
+    border-radius: 20px;
+    background: #e5d6ff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.auth-tab.active {
+    background: #b381ff;
+    color: white;
+}
+
+/* формы */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-form.hidden {
+    display: none;
+}
+
+.auth-form input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #cbb6ff;
+}
+
+.auth-submit {
+    margin-top: 10px;
+    padding: 12px;
+    background: #7b3efc;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.auth-error {
+    color: #d62828;
+    margin-top: 15px;
+    min-height: 20px;
+}
+
+.input-error {
+    border: 1px solid #d62828 !important;
+}
+
+.hint {
+    font-size: 12px;
+    margin-top: 4px;
+    min-height: 14px;
+    transition: 0.2s;
+    color: #8c82a3; /* стандартный цвет */
+}
+
+.hint.error {
+    color: #d62828;
+}
+
+.hint.success {
+    color: #2a9d8f;
+}
+
+
+
+
+
+
+
 
 /* КАТЕГОРИИ */
 .categories {

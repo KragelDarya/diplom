@@ -5,36 +5,27 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("mousemove", e => {
         const rect = hero.getBoundingClientRect();
 
-        // курсор НАД hero
+        // курсор ВНЕ hero — хвост НЕ создаём
         if (
-            e.clientX >= rect.left &&
-            e.clientX <= rect.right &&
-            e.clientY >= rect.top &&
-            e.clientY <= rect.bottom
+            e.clientX < rect.left ||
+            e.clientX > rect.right ||
+            e.clientY < rect.top ||
+            e.clientY > rect.bottom
         ) {
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            hero.style.setProperty("--mx", x + "px");
-            hero.style.setProperty("--my", y + "px");
-        } else {
-            // уводим маску за пределы блока
-            hero.style.setProperty("--mx", "-100px");
-            hero.style.setProperty("--my", "-100px");
+            return;
         }
+
+        // создаём хвост внутри hero
+        const dot = document.createElement("div");
+        dot.className = "trail-dot";
+
+        // координаты внутри hero
+        dot.style.left = (e.clientX - rect.left) + "px";
+        dot.style.top = (e.clientY - rect.top) + "px";
+
+        hero.appendChild(dot);
+
+        setTimeout(() => dot.remove(), 900);
     });
 });
 
-document.addEventListener("mousemove", e => {
-    const dot = document.createElement("div");
-    dot.className = "trail-dot";
-
-    dot.style.left = e.clientX + "px";
-    dot.style.top = e.clientY + "px";
-
-    document.body.appendChild(dot);
-
-    setTimeout(() => {
-        dot.remove();
-    }, 900);
-});
