@@ -105,13 +105,46 @@ body {
     margin-left: 5px;
 }
 
-/* ======= КАРТИНКА-СХЕМА ======= */
-.scheme-image-container {
-    margin-top: 15px;
-    width: 100%;
-    overflow: auto;
-    border-radius: 12px;
+/* ====== ПИКСЕЛЬНАЯ СЕТКА ====== */
+.scheme-grid {
+    display: grid;
+    grid-template-columns: repeat(50, 16px);
+    grid-auto-rows: 16px;
+    gap: 0;
+    margin: 20px auto;
+    border: 2px solid #eee;
 }
+
+
+.pixel {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* отмеченный пиксель — кружочек */
+.pixel.marked::after {
+    content: "○";
+    position: absolute;
+    inset: 0;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
