@@ -19,10 +19,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const hintPassword = document.getElementById("hint-password");
     const hintPassword2 = document.getElementById("hint-password2");
 
-    /* открыть модалку */
+    /* открыть модалку по кнопке регистрации */
     document.querySelector(".register-btn").addEventListener("click", e => {
         e.preventDefault();
         modal.style.display = "flex";
+
+        // сразу вкладка регистрации
+        tabs.forEach(t => t.classList.remove("active"));
+        document.querySelector('[data-tab="register"]').classList.add("active");
+        registerForm.classList.remove("hidden");
+        loginForm.classList.add("hidden");
+    });
+
+    /* открыть модалку по кнопке "Войти" в шапке */
+    document.querySelector(".login-btn").addEventListener("click", e => {
+        e.preventDefault();
+        modal.style.display = "flex";
+
+        // сразу вкладка входа
+        tabs.forEach(t => t.classList.remove("active"));
+        document.querySelector('[data-tab="login"]').classList.add("active");
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
     });
 
     /* закрыть модалку */
